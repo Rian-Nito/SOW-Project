@@ -18,7 +18,7 @@ const AboutSection = () => {
                 <Users size={120} className="text-green-500 opacity-50" />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-green-50">
-                <span className="text-3xl font-bold text-green-600">3-8</span>
+                <span className="text-3xl font-bold text-green-600">5-6</span>
                 <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Anos de idade</p>
               </div>
             </div>
@@ -48,7 +48,7 @@ const AboutSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-900">Público-Alvo</h4>
-                  <p className="text-gray-500">Especialmente desenhado para crianças de <strong>3 e 8 anos</strong>.</p>
+                  <p className="text-gray-500">Especialmente desenhado para crianças de <strong>5 e 6 anos</strong>.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">

@@ -15,9 +15,9 @@ const ContactSection = () => {
         <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
           Entre em contato conosco para agendar uma atividade ou tirar suas dúvidas.
         </p>
-        
+
         <div className="flex flex-col sm:flex-row justify-center gap-6">
-          <a 
+          <a
             href={`https://wa.me/${whatsappNumber}?text=${message}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -26,8 +26,8 @@ const ContactSection = () => {
             <MessageCircle size={24} />
             Falar no WhatsApp
           </a>
-          
-          <a 
+
+          <a
             href={`mailto:${email}?subject=Interesse no Projeto Escola Sustentável`}
             className="flex items-center justify-center gap-3 px-10 py-5 bg-white text-gray-700 border-2 border-gray-200 rounded-2xl font-bold text-lg hover:border-green-200 hover:text-green-600 transition-all"
           >
@@ -35,7 +35,7 @@ const ContactSection = () => {
             Enviar E-mail
           </a>
         </div>
-        
+
         <p className="mt-12 text-gray-400 text-sm">
           © 2026 SOW Consultoria Ambiental. Todos os direitos reservados.
         </p>

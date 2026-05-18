@@ -16,22 +16,21 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900">
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-md border-b border-gray-100">
         <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
+          <a href="#" className="flex items-center gap-2 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer">
             <img src={descSow} alt="Logo SOW" className="h-20 w-auto object-contain mix-blend-multiply" />
-          </div>
+          </a>
           <div className="hidden md:flex items-center gap-8 font-medium text-gray-600">
             <a href="#" className="hover:text-green-600 transition-colors flex items-center gap-1">
-              <Home size={18} />
-              Home
+              Início
             </a>
             <a href="#sobre" className="hover:text-green-600 transition-colors">Sobre</a>
             <a href="#metodologia" className="hover:text-green-600 transition-colors">Metodologia</a>
 
             <div className="relative">
               <button
-                onMouseOver={() => setShowProjects(!showProjects)}
+                onClick={() => setShowProjects(!showProjects)}
                 className="hover:text-green-600 transition-colors flex items-center gap-1 focus:outline-none"
               >
                 Projetos
@@ -59,7 +58,7 @@ function App() {
               </AnimatePresence>
             </div>
 
-            <a href="#contato" className="px-5 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors ml-2">Contato</a>
+            <a href="#contato" className="px-5 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 hover:-translate-y-0.5 hover:scale-105 active:scale-95 transition-all duration-300 ml-2">Contato</a>
           </div>
 
           {/* Botão Menu Mobile */}
@@ -87,7 +86,7 @@ function App() {
                   className="hover:text-green-600 transition-colors flex items-center gap-2 py-2"
                 >
                   <Home size={20} />
-                  Home
+                  Início
                 </a>
                 <a
                   href="#sobre"
@@ -112,7 +111,7 @@ function App() {
                 <a
                   href="#contato"
                   onClick={() => setIsMenuOpen(false)}
-                  className="w-full py-3 bg-green-600 text-white rounded-xl text-center hover:bg-green-700 transition-colors mt-2"
+                  className="w-full py-3 bg-green-800 text-white rounded-xl text-center hover:bg-green-800 hover:-translate-y-0.5 hover:scale-105 active:scale-95 transition-all duration-300 mt-2"
                 >
                   Contato
                 </a>

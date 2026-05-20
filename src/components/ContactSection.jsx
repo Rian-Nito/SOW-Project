@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Mail } from 'lucide-react';
+import { MessageCircle, Mail, Send } from 'lucide-react';
 
 const ContactSection = () => {
   const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
@@ -29,26 +29,53 @@ const ContactSection = () => {
           Entre em contato conosco para agendar uma atividade ou tirar suas dúvidas.
         </p>
 
-        {/* Botões de Contato Principais */}
-        <div className="flex flex-col sm:flex-row justify-center gap-6 mb-20 relative z-20">
-          <a
-            href={`https://wa.me/${whatsappNumber}?text=${message}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 px-10 py-5 bg-white text-green-900 rounded-2xl font-bold text-lg hover:bg-green-50 hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-green-950/20 cursor-pointer"
-          >
-            <MessageCircle size={24} />
-            Falar no WhatsApp
-          </a>
+        {/* Formulário de Contato Inteligente */}
+        <div className="max-w-2xl mx-auto mb-20 relative z-20 bg-green-900/40 p-8 rounded-3xl border border-green-700/50 shadow-xl backdrop-blur-sm">
+          <form action={`https://formsubmit.co/${email}`} method="POST" className="flex flex-col gap-5 text-left">
+            {/* FormSubmit Configuration */}
+            <input type="hidden" name="_subject" value="Novo Contato - Projeto Escola Sustentável" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            
+            <div className="flex flex-col md:flex-row gap-5">
+              <div className="flex-1">
+                <label htmlFor="name" className="block text-green-200 text-sm font-bold mb-2 ml-1">Nome Completo</label>
+                <input type="text" id="name" name="name" required className="w-full px-5 py-4 rounded-2xl bg-green-800/50 border border-green-700/50 text-white focus:outline-none focus:ring-2 focus:ring-green-400 placeholder-green-200/30 transition-all" placeholder="Seu nome" />
+              </div>
+              <div className="flex-1">
+                <label htmlFor="school" className="block text-green-200 text-sm font-bold mb-2 ml-1">Nome da Escola</label>
+                <input type="text" id="school" name="school" required className="w-full px-5 py-4 rounded-2xl bg-green-800/50 border border-green-700/50 text-white focus:outline-none focus:ring-2 focus:ring-green-400 placeholder-green-200/30 transition-all" placeholder="Sua escola" />
+              </div>
+            </div>
 
-          <a
-            href="#"
-            onClick={handleEmailClick}
-            className="flex items-center justify-center gap-3 px-10 py-5 bg-green-700/40 text-green-100 border-2 border-green-700/60 rounded-2xl font-bold text-lg hover:bg-green-700/60 hover:text-white hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
-          >
-            <Mail size={24} />
-            Enviar E-mail
-          </a>
+            <div>
+              <label htmlFor="email" className="block text-green-200 text-sm font-bold mb-2 ml-1">E-mail de Contato</label>
+              <input type="email" id="email" name="email" required className="w-full px-5 py-4 rounded-2xl bg-green-800/50 border border-green-700/50 text-white focus:outline-none focus:ring-2 focus:ring-green-400 placeholder-green-200/30 transition-all" placeholder="seu@email.com" />
+            </div>
+
+            <div>
+              <label htmlFor="message" className="block text-green-200 text-sm font-bold mb-2 ml-1">Mensagem</label>
+              <textarea id="message" name="message" rows="4" required className="w-full px-5 py-4 rounded-2xl bg-green-800/50 border border-green-700/50 text-white focus:outline-none focus:ring-2 focus:ring-green-400 placeholder-green-200/30 resize-none transition-all" placeholder="Como podemos ajudar sua escola?"></textarea>
+            </div>
+
+            <button type="submit" className="mt-2 flex items-center justify-center gap-3 w-full px-8 py-5 bg-white text-green-900 rounded-2xl font-bold text-lg hover:bg-green-50 hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-green-950/20 cursor-pointer">
+              <Send size={24} />
+              Enviar Mensagem
+            </button>
+            
+            <div className="mt-4 flex flex-col items-center justify-center gap-3">
+              <span className="text-green-200/50 text-sm font-medium">Ou se preferir um contato mais rápido:</span>
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=${message}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2.5 px-8 py-3.5 bg-green-700/40 text-green-100 border-2 border-green-700/60 rounded-2xl font-bold text-md hover:bg-green-700/60 hover:text-white hover:-translate-y-1 transition-all duration-300 cursor-pointer w-full sm:w-auto"
+              >
+                <MessageCircle size={20} />
+                Chamar no WhatsApp
+              </a>
+            </div>
+          </form>
         </div>
 
         {/* Rodapé Reestruturado e Suave */}

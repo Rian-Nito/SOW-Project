@@ -2,9 +2,16 @@ import React from 'react';
 import { MessageCircle, Mail } from 'lucide-react';
 
 const ContactSection = () => {
-  const whatsappNumber = "5511999999999"; // Placeholder
-  const email = "contato@sowconsultoria.com.br"; // Placeholder
-  const message = encodeURIComponent("Olá! Gostaria de saber mais sobre o Projeto Escola Sustentável para minha escola.");
+  const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
+  const email = import.meta.env.VITE_EMAIL;
+  const rawMessage = import.meta.env.VITE_WHATSAPP_MESSAGE;
+  const message = encodeURIComponent(rawMessage);
+  const instagramUrl = import.meta.env.VITE_INSTAGRAM_URL;
+
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    window.location.href = `mailto:${email}?subject=Interesse no Projeto Escola Sustentável`;
+  };
 
   return (
     <section id="contato" className="py-20 bg-green-800 scroll-mt-28 relative">
@@ -35,7 +42,8 @@ const ContactSection = () => {
           </a>
 
           <a
-            href={`mailto:${email}?subject=Interesse no Projeto Escola Sustentável`}
+            href="#"
+            onClick={handleEmailClick}
             className="flex items-center justify-center gap-3 px-10 py-5 bg-green-700/40 text-green-100 border-2 border-green-700/60 rounded-2xl font-bold text-lg hover:bg-green-700/60 hover:text-white hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
           >
             <Mail size={24} />
@@ -78,7 +86,7 @@ const ContactSection = () => {
               <ul className="space-y-3">
                 <li>
                   <a 
-                    href="https://www.instagram.com/sow.consultoria.ambiental/" 
+                    href={instagramUrl} 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2.5 text-green-200/60 hover:text-white transition-colors duration-200 text-sm group"
@@ -115,7 +123,8 @@ const ContactSection = () => {
                 </li>
                 <li>
                   <a 
-                    href={`mailto:${email}?subject=Interesse no Projeto Escola Sustentável`}
+                    href="#"
+                    onClick={handleEmailClick}
                     className="flex items-center gap-2.5 text-green-200/60 hover:text-white transition-colors duration-200 text-sm group"
                   >
                     <Mail size={16} className="text-green-300 group-hover:scale-110 transition-transform" />
